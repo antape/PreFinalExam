@@ -17,13 +17,13 @@ namespace Task1_WorkWithFile
             sw.WriteLine("1235 1455 1898 1423");
             sw.Write("5 9 3 0");
             sw.Close();
-            file.Close();
+            
 
             //считывания содержимое как string и через сплит заносим в массив типа string
             string text = File.ReadAllText(@"C:\final\task1.txt");
-            Console.WriteLine("Файл lab2.txt создан\n\nСодержимое файла:\n{0}", text);
+            Console.WriteLine("Файл {1} создан\n\nСодержимое файла:\n{0}", text, file.Name);
             string[] temp = text.Split(' ', '\n');
-
+            file.Close();
             //почитал документацию, нашел как тут пользоваться листом
             List<int> numbers = new List<int>();  //все числа
             List<int> prime = new List<int>();   //простые числа
@@ -45,7 +45,7 @@ namespace Task1_WorkWithFile
             prime.Sort();
 
             Console.WriteLine("\n\nMAX NUMBER: {1}, MIN MAX NUMBER: {0}", numbers[0], numbers[numbers.Count() - 1]);
-            Console.WriteLine("\n\nMAX PRIME: {1}, MIN PRIME: {0}", prime[0], prime[prime.Count() - 1]);
+            Console.WriteLine("\nMAX PRIME: {1}, MIN PRIME: {0}", prime[0], prime[prime.Count() - 1]);
             Console.ReadKey();
         }
     }
